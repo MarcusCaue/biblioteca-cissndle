@@ -36,7 +36,7 @@ class LivrosController extends Controller
     // Funções que retornam as views
     public function mostrar_livros() {
         $livros = Livro::all();
-        return view("livraria.index")->with("livros", $livros);
+        return view("livraria.anuncios")->with("livros", $livros);
     }
 
     public function anuncios() {

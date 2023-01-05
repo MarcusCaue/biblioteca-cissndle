@@ -55,4 +55,39 @@
 </div>
 @endfor
 
+<!-- JavaScript próprio -->
+<script>
+    const input = document.querySelector("#filtro_js")
+    const cardTitles = document.querySelectorAll(".card-title")
+    const titleBooks = []
+    
+    cardTitles.forEach((cardTitle) => {
+        titleBooks.push(cardTitle.textContent.trim().toLowerCase())
+    })
+
+    const books = document.querySelectorAll(".card")
+
+
+    input.addEventListener("input", () => {
+        let valorInput = input.value.trim().toLowerCase()
+
+        if (valorInput === "") {
+            books.forEach((book) => {
+                book.style.display = "flex"
+            })
+        }
+        else {
+            books.forEach((book) => {
+                let titleBook = book.querySelector(".card-title").textContent.trim().toLowerCase()
+
+                if (titleBook.includes(valorInput)) {
+                    book.style.display = "flex"
+                } else {
+                    book.style.display = "none"
+                }
+            })
+        }
+    })
+</script>
+
 @endsection
