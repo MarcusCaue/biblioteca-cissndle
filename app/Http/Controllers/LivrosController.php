@@ -7,6 +7,20 @@ use App\Models\Livro;
 
 class LivrosController extends Controller
 {
+    public function get_values_json() {
+        $data = [
+            "nome" => "Jonas",
+            "idade" => 2787,
+            "livros" => [
+                "Jonas de Samos e o Semideserto",
+                "Jonas de Samos e as Terras Gélidas",
+                "Jonas de Samos e as Florestas Úmidas",
+                "Jonas de Samos e as Trevas Densas"
+            ]
+        ];
+
+        return $data;
+    }
 
     public function save_livro(Request $req) {
         $nome = $req->nome;
@@ -36,7 +50,8 @@ class LivrosController extends Controller
     // Funções que retornam as views
     public function mostrar_livros() {
         $livros = Livro::all();
-        return view("livraria.anuncios")->with("livros", $livros);
+        return $livros;
+        // return view("livraria.anuncios")->with("livros", $livros);
     }
 
     public function anuncios() {

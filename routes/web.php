@@ -14,6 +14,10 @@ use App\Http\Controllers\LivrosController;
 |
 */
 
+header('Access-Control-Allow-Origin: *'); 
+
+Route::get("/get_values_json", "App\Http\Controllers\LivrosController@get_values_json");
+
 Route::get('/', "App\Http\Controllers\LivrosController@mostrar_livros")->name("mostrar_livros");
 
 Route::get('/about', "App\Http\Controllers\LivrosController@about")->name("about");
